@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  Unit conversion
 //
 //  Created by Anjana S Porawagama on 8/14/2561 BE.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class TempViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
