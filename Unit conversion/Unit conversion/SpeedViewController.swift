@@ -9,7 +9,17 @@
 import UIKit
 
 class SpeedViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var mpsField: UITextField!
+    @IBOutlet weak var fpmField: UITextField!
+    @IBOutlet weak var kphField: UITextField!
+    @IBOutlet weak var mphField: UITextField!
+    var mpsValue = 0.0
+    var fpmValue = 0.0
+    var kphValue = 0.0
+    var mphValue = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +31,44 @@ class SpeedViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func mps(_ sender: UITextField) {
+        mpsValue = Double(mpsField.text!) ?? 0.0
+        fpmValue = mpsValue * 196.85
+        kphValue = mpsValue * 3.6
+        mphValue = mpsValue * 2.23694
+        fpmField.text = String(fpmValue.rounded(toPlaces: 3))
+        kphField.text = String(kphValue.rounded(toPlaces: 3))
+        mphField.text = String(mphValue.rounded(toPlaces: 3))
     }
-    */
-
+    
+    @IBAction func fpm(_ sender: Any) {
+        fpmValue = Double(fpmField.text!) ?? 0.0
+        mpsValue = fpmValue * 0.00508
+        kphValue = mpsValue * 3.6
+        mphValue = mpsValue * 2.23694
+        mpsField.text = String(mpsValue.rounded(toPlaces: 3))
+        kphField.text = String(kphValue.rounded(toPlaces: 3))
+        mphField.text = String(mphValue.rounded(toPlaces: 3))
+    }
+    
+    @IBAction func kph(_ sender: UITextField) {
+        kphValue = Double(kphField.text!) ?? 0.0
+        mpsValue = kphValue * 0.277778
+        fpmValue = mpsValue * 196.85
+        mphValue = mpsValue * 2.23694
+        fpmField.text = String(fpmValue.rounded(toPlaces: 3))
+        mpsField.text = String(mpsValue.rounded(toPlaces: 3))
+        mphField.text = String(mphValue.rounded(toPlaces: 3))
+    }
+    
+    @IBAction func mph(_ sender: UITextField) {
+        mphValue = Double(mphField.text!) ?? 0.0
+        mpsValue = mphValue * 0.44704
+        fpmValue = mpsValue * 196.85
+        kphValue = mpsValue * 3.6
+        fpmField.text = String(fpmValue.rounded(toPlaces: 3))
+        mpsField.text = String(mpsValue.rounded(toPlaces: 3))
+        kphField.text = String(kphValue.rounded(toPlaces: 3))
+    }
+    
 }

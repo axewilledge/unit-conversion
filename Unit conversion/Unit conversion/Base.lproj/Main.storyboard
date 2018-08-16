@@ -376,6 +376,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="mps:" destination="yeg-es-Ps4" eventType="editingDidEnd" id="rCi-uo-dN0"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a8I-VI-aC7">
                                 <rect key="frame" x="161" y="145" width="194" height="30"/>
@@ -383,6 +386,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="fpm:" destination="yeg-es-Ps4" eventType="editingChanged" id="CRh-nD-RVt"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSw-3s-cTd">
                                 <rect key="frame" x="161" y="196" width="194" height="30"/>
@@ -390,6 +396,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="kph:" destination="yeg-es-Ps4" eventType="editingChanged" id="6YM-g5-ae5"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="isi-u8-khI">
                                 <rect key="frame" x="161" y="247" width="194" height="30"/>
@@ -397,12 +406,21 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="mph:" destination="yeg-es-Ps4" eventType="editingChanged" id="Sy7-wp-0NS"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BKE-sg-Cdz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Speed" image="speed" id="gMo-hy-5qU"/>
+                    <connections>
+                        <outlet property="fpmField" destination="a8I-VI-aC7" id="kxW-42-I5O"/>
+                        <outlet property="kphField" destination="aSw-3s-cTd" id="uba-VV-h3j"/>
+                        <outlet property="mphField" destination="isi-u8-khI" id="4h6-4m-xQG"/>
+                        <outlet property="mpsField" destination="MrH-oY-Soa" id="hlh-Qk-ezS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hoy-Aa-PSS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
