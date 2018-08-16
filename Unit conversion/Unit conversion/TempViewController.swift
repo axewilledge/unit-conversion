@@ -37,7 +37,7 @@ class TempViewController: UIViewController {
     }
     @IBAction func fahrenheit(_ sender: Any) {
         fahrenheitValue = Double(fahrenheitField.text!) ?? 0.0
-        celsiusValue = (celsiusValue - 32 ) * (5/9)
+        celsiusValue = (fahrenheitValue - 32 ) * (5/9)
         kelvinValue = celsiusValue + 273.15
         celsiusField.text = String(celsiusValue.rounded(toPlaces: 3))
         kelvinField.text = String(kelvinValue.rounded(toPlaces: 3))
