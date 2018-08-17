@@ -15,6 +15,8 @@
 		840985E52122CBD7007292D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840985E32122CBD7007292D4 /* LaunchScreen.storyboard */; };
 		844E13C1212421250041EABD /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E13C0212421250041EABD /* SpeedViewController.swift */; };
 		844E13C32124215D0041EABD /* DistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E13C22124215D0041EABD /* DistanceViewController.swift */; };
+		84526F572125909100A46FE3 /* UnitConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84526F562125909100A46FE3 /* UnitConversion.swift */; };
+		845BA62F2126AE000049E4EE /* ConstantValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845BA62E2126AE000049E4EE /* ConstantValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		840985E62122CBD7007292D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844E13C0212421250041EABD /* SpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewController.swift; sourceTree = "<group>"; };
 		844E13C22124215D0041EABD /* DistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceViewController.swift; sourceTree = "<group>"; };
+		84526F562125909100A46FE3 /* UnitConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnitConversion.swift; path = Conversions/UnitConversion.swift; sourceTree = "<group>"; };
+		845BA62E2126AE000049E4EE /* ConstantValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConstantValues.swift; path = Conversions/ConstantValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				840985E62122CBD7007292D4 /* Info.plist */,
 				844E13C0212421250041EABD /* SpeedViewController.swift */,
 				844E13C22124215D0041EABD /* DistanceViewController.swift */,
+				84526F562125909100A46FE3 /* UnitConversion.swift */,
+				845BA62E2126AE000049E4EE /* ConstantValues.swift */,
 			);
 			path = "Unit conversion";
 			sourceTree = "<group>";
@@ -145,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				844E13C1212421250041EABD /* SpeedViewController.swift in Sources */,
+				84526F572125909100A46FE3 /* UnitConversion.swift in Sources */,
 				840985DD2122CBD5007292D4 /* TempViewController.swift in Sources */,
+				845BA62F2126AE000049E4EE /* ConstantValues.swift in Sources */,
 				840985D92122CBD5007292D4 /* AppDelegate.swift in Sources */,
 				844E13C32124215D0041EABD /* DistanceViewController.swift in Sources */,
 				840985DB2122CBD5007292D4 /* WeightViewController.swift in Sources */,

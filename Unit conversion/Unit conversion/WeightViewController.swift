@@ -12,7 +12,6 @@ class WeightViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,57 +24,35 @@ class WeightViewController: UIViewController {
     @IBOutlet weak var kilogram: UITextField!
     @IBOutlet weak var pound: UITextField!
     @IBOutlet weak var ounce: UITextField!
-    var gramValue = 0.0;
-    var kiloValue = 0.0;
-    var poundValue = 0.0;
-    var ounceValue = 0.0;
     
+    let conversion = UnitConversion()
     
     @IBAction func Grams(_ sender: UITextField) {
-        gramValue = Double(gram.text!) ?? 0.0
-        kiloValue = gramValue/1000
-        poundValue = gramValue * 0.00220462
-        ounceValue = poundValue * 16
-        kilogram.text = String(kiloValue.rounded(toPlaces: 3))
-        pound.text = String(poundValue.rounded(toPlaces: 5))
-        ounce.text = String(ounceValue.rounded(toPlaces: 5))
+        self.conversion.generateWeights(key: ConstantValues.WeightKeys.gram, value: gram.text!)
+        kilogram.text = self.conversion.getKilo()
+        pound.text = self.conversion.getPound()
+        ounce.text = self.conversion.getOunce()
     }
     
     @IBAction func kilograms(_ sender: UITextField) {
-        kiloValue = Double(kilogram.text!) ?? 0.0
-        gramValue = kiloValue  * 1000
-        poundValue = gramValue * 0.00220462
-        ounceValue = poundValue * 16
-        gram.text = String(gramValue.rounded(toPlaces: 0))
-        pound.text = String(poundValue.rounded(toPlaces: 5))
-        ounce.text = String(ounceValue.rounded(toPlaces: 5))
+        self.conversion.generateWeights(key: ConstantValues.WeightKeys.kilo, value: kilogram.text!)
+        gram.text = self.conversion.getGram()
+        pound.text = self.conversion.getPound()
+        ounce.text = self.conversion.getOunce()
     }
     
     @IBAction func pounds(_ sender: Any) {
-        poundValue = Double(pound.text!) ?? 0.0
-        gramValue = poundValue/0.00220462
-        kiloValue = gramValue/1000
-        ounceValue = poundValue * 16
-        kilogram.text = String(kiloValue.rounded(toPlaces: 3))
-        gram.text = String(gramValue.rounded(toPlaces: 0))
-        ounce.text = String(ounceValue.rounded(toPlaces: 5))
+        self.conversion.generateWeights(key: ConstantValues.WeightKeys.pound, value: pound.text!)
+        kilogram.text = self.conversion.getKilo()
+        gram.text = self.conversion.getGram()
+        ounce.text = self.conversion.getOunce()
     }
     @IBAction func ounces(_ sender: UITextField) {
-        ounceValue = Double(ounce.text!) ?? 0.0
-        gramValue = ounceValue/0.035274
-        kiloValue = gramValue/1000
-        poundValue = gramValue * 0.00220462
-        kilogram.text = String(kiloValue.rounded(toPlaces: 3))
-        gram.text = String(gramValue.rounded(toPlaces: 0))
-        pound.text = String(poundValue.rounded(toPlaces: 5))
+        self.conversion.generateWeights(key: ConstantValues.WeightKeys.ounce, value: ounce.text!)
+        kilogram.text = self.conversion.getKilo()
+        gram.text = self.conversion.getGram()
+        pound.text = self.conversion.getPound()
     }
    
-}
-
-extension Double {
-    func rounded(toPlaces places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
 }
 
