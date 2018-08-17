@@ -8,17 +8,25 @@
 
 class UnitConversion {
     
+    private let defualtValue : Double
+    
+/* Properties for Weight Conversion */
     private var gramValue : Double
     private var kiloValue : Double
     private var poundValue : Double
     private var ounceValue : Double
     
-    private let defualtValue : Double
     private let gramInKilo : Double
     private let poundsInGram : Double
     private let ounceInGram : Double
     private let ounceInPound : Double
     
+/* Properties for Temperature Conversion */
+    private var celsiusValue : Double
+    private var fahrenheitValue : Double
+    private var kelvinValue : Double
+    
+    private let kelvin : Double
   
     
     init() {
@@ -32,8 +40,15 @@ class UnitConversion {
         self.kiloValue = 0.0
         self.poundValue = 0.0
         self.ounceValue = 0.0
+        
+        self.kelvin = ConstantValues.TempValues.kelvinValue.rawValue
+        
+        self.celsiusValue = 0.0
+        self.fahrenheitValue = 0.0
+        self.kelvinValue = 0.0
     }
-
+    
+/* ~~~Weight Conversion Methods START~~~ */
     func generateWeights(key : ConstantValues.WeightKeys , value : String) -> Void{
         switch key {
             case .gram :
@@ -74,5 +89,37 @@ class UnitConversion {
     func getOunce() -> String {
         return String(self.ounceValue.rounded(toPlaces: 5))
     }
+/* ~~~Weight Conversion Methods END~~~ */
+    
+/* ~~~Temperature Conversion Methods START~~~ */
+    func generateTemp(key : ConstantValues.TempKeys , value : String) -> Void {
+        switch key {
+            case .celsius :
+                self.celsiusValue = Double(value) ?? 0.0
+                self.fahrenheitValue = (self.celsiusValue * (9/5)) + 32
+                self.kelvinValue = self.celsiusValue + self.kelvin
+            case .fahrenheit :
+                self.fahrenheitValue = Double(value) ?? 0.0
+                self.celsiusValue = (self.fahrenheitValue - 32 ) * (5/9)
+                self.kelvinValue = self.celsiusValue + self.kelvin
+            case .kelvin :
+                self.kelvinValue = Double(value) ?? 0.0
+                self.celsiusValue = self.kelvinValue - self.kelvin
+                self.fahrenheitValue = (self.celsiusValue * (9/5)) + 32
+        }
+    }
+    
+    func getCelsius() -> String {
+        return String(self.celsiusValue.rounded(toPlaces: 5))
+    }
+    
+    func getFahrenheit() -> String {
+        return String(self.fahrenheitValue.rounded(toPlaces: 5))
+    }
+    
+    func getKelvin() -> String {
+        return String(self.kelvinValue.rounded(toPlaces: 5))
+    }
+/* ~~~Temperature Conversion Methods END~~~ */
     
 }
