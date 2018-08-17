@@ -28,6 +28,22 @@ class UnitConversion {
     
     private let kelvin : Double
   
+/* Properties for Speed Coversion */
+    private var mpsValue : Double
+    private var fpmValue : Double
+    private var kphValue : Double
+    private var mphValue : Double
+    
+    private let fpmInMps : Double
+    private let kphInMps : Double
+    private let mphInMps : Double
+    
+    private let mpsInFpm : Double
+    
+    private let mpsInKph : Double
+    
+    private let mpsInMph : Double
+    private let fpmInMph : Double
     
     init() {
         self.defualtValue = 0.0
@@ -35,6 +51,14 @@ class UnitConversion {
         self.poundsInGram = ConstantValues.WeightValues.poundsInGram.rawValue
         self.ounceInGram = ConstantValues.WeightValues.ounceInGram.rawValue
         self.ounceInPound = ConstantValues.WeightValues.ounceInPound.rawValue
+        
+        self.fpmInMps = ConstantValues.SpeedValues.fpmInMps.rawValue
+        self.kphInMps = ConstantValues.SpeedValues.kphInMps.rawValue
+        self.mphInMps = ConstantValues.SpeedValues.mphInMps.rawValue
+        self.mpsInFpm = ConstantValues.SpeedValues.mpsInFpm.rawValue
+        self.mpsInKph = ConstantValues.SpeedValues.mpsInKph.rawValue
+        self.mpsInMph = ConstantValues.SpeedValues.mpsInMph.rawValue
+        self.fpmInMph = ConstantValues.SpeedValues.fpmInMph.rawValue
         
         self.gramValue = 0.0
         self.kiloValue = 0.0
@@ -46,6 +70,11 @@ class UnitConversion {
         self.celsiusValue = 0.0
         self.fahrenheitValue = 0.0
         self.kelvinValue = 0.0
+        
+        self.mpsValue = 0.0
+        self.fpmValue = 0.0
+        self.kphValue = 0.0
+        self.mphValue = 0.0
     }
     
 /* ~~~Weight Conversion Methods START~~~ */
@@ -95,15 +124,15 @@ class UnitConversion {
     func generateTemp(key : ConstantValues.TempKeys , value : String) -> Void {
         switch key {
             case .celsius :
-                self.celsiusValue = Double(value) ?? 0.0
+                self.celsiusValue = Double(value) ?? defualtValue
                 self.fahrenheitValue = (self.celsiusValue * (9/5)) + 32
                 self.kelvinValue = self.celsiusValue + self.kelvin
             case .fahrenheit :
-                self.fahrenheitValue = Double(value) ?? 0.0
+                self.fahrenheitValue = Double(value) ?? defualtValue
                 self.celsiusValue = (self.fahrenheitValue - 32 ) * (5/9)
                 self.kelvinValue = self.celsiusValue + self.kelvin
             case .kelvin :
-                self.kelvinValue = Double(value) ?? 0.0
+                self.kelvinValue = Double(value) ?? defualtValue
                 self.celsiusValue = self.kelvinValue - self.kelvin
                 self.fahrenheitValue = (self.celsiusValue * (9/5)) + 32
         }
@@ -122,4 +151,47 @@ class UnitConversion {
     }
 /* ~~~Temperature Conversion Methods END~~~ */
     
+    
+/* ~~~Speed Conversion Methods START~~~ */
+    func generateSpeeds(key : ConstantValues.SpeedKeys , value : String) -> Void{
+        switch key {
+            case .mps :
+                self.mpsValue = Double(value) ?? defualtValue
+                self.fpmValue = self.mpsValue * self.fpmInMps
+                self.kphValue = self.mpsValue * self.kphInMps
+                self.mphValue = self.mpsValue * self.mphInMps
+            case .fpm :
+                self.fpmValue = Double(value) ?? defualtValue
+                self.mpsValue = self.fpmValue * self.mpsInFpm
+                self.kphValue = self.mpsValue * self.kphInMps
+                self.mphValue = self.mpsValue * self.mphInMps
+            case .kph :
+                self.kphValue = Double(value) ?? defualtValue
+                self.mpsValue = self.kphValue * self.mpsInKph
+                self.fpmValue = self.mpsValue * self.fpmInMps
+                self.mphValue = self.mpsValue * self.mphInMps
+            case .mph :
+                self.mphValue = Double(value) ?? defualtValue
+                self.mpsValue = self.mphValue * self.mpsInMph
+                self.fpmValue = self.mphValue * self.fpmInMph
+                self.kphValue = self.mpsValue * self.kphInMps
+        }
+    }
+    
+    func getMps() -> String {
+        return String(self.mpsValue.rounded(toPlaces: 5))
+    }
+    
+    func getFpm() -> String {
+        return String(self.fpmValue.rounded(toPlaces: 5))
+    }
+    
+    func getKph() -> String {
+        return String(self.kphValue.rounded(toPlaces: 5))
+    }
+    
+    func getMph() -> String {
+        return String(self.mphValue.rounded(toPlaces: 5))
+    }
+/* ~~~Speed Conversion Methods END~~~ */
 }

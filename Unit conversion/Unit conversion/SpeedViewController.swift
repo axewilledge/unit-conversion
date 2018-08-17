@@ -15,10 +15,8 @@ class SpeedViewController: UIViewController {
     @IBOutlet weak var fpmField: UITextField!
     @IBOutlet weak var kphField: UITextField!
     @IBOutlet weak var mphField: UITextField!
-    var mpsValue = 0.0
-    var fpmValue = 0.0
-    var kphValue = 0.0
-    var mphValue = 0.0
+    
+    let conversion = UnitConversion()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,43 +30,31 @@ class SpeedViewController: UIViewController {
     }
     
     @IBAction func mps(_ sender: UITextField) {
-        mpsValue = Double(mpsField.text!) ?? 0.0
-        fpmValue = mpsValue * 196.85
-        kphValue = mpsValue * 3.6
-        mphValue = mpsValue * 2.23694
-        fpmField.text = String(fpmValue.rounded(toPlaces: 3))
-        kphField.text = String(kphValue.rounded(toPlaces: 3))
-        mphField.text = String(mphValue.rounded(toPlaces: 3))
+        self.conversion.generateSpeeds(key: ConstantValues.SpeedKeys.mps, value: mpsField.text!)
+        fpmField.text =  self.conversion.getFpm()
+        kphField.text = self.conversion.getKph()
+        mphField.text = self.conversion.getMph()
     }
     
     @IBAction func fpm(_ sender: Any) {
-        fpmValue = Double(fpmField.text!) ?? 0.0
-        mpsValue = fpmValue * 0.00508
-        kphValue = mpsValue * 3.6
-        mphValue = mpsValue * 2.23694
-        mpsField.text = String(mpsValue.rounded(toPlaces: 3))
-        kphField.text = String(kphValue.rounded(toPlaces: 3))
-        mphField.text = String(mphValue.rounded(toPlaces: 3))
+       self.conversion.generateSpeeds(key: ConstantValues.SpeedKeys.fpm, value: fpmField.text!)
+        mpsField.text = self.conversion.getMps()
+        kphField.text = self.conversion.getKph()
+        mphField.text = self.conversion.getMph()
     }
     
     @IBAction func kph(_ sender: UITextField) {
-        kphValue = Double(kphField.text!) ?? 0.0
-        mpsValue = kphValue * 0.277778
-        fpmValue = mpsValue * 196.85
-        mphValue = mpsValue * 2.23694
-        fpmField.text = String(fpmValue.rounded(toPlaces: 3))
-        mpsField.text = String(mpsValue.rounded(toPlaces: 3))
-        mphField.text = String(mphValue.rounded(toPlaces: 3))
+        self.conversion.generateSpeeds(key: ConstantValues.SpeedKeys.kph, value: kphField.text!)
+        fpmField.text = self.conversion.getFpm()
+        mpsField.text = self.conversion.getMps()
+        mphField.text = self.conversion.getMph()
     }
     
     @IBAction func mph(_ sender: UITextField) {
-        mphValue = Double(mphField.text!) ?? 0.0
-        mpsValue = mphValue * 0.44704
-        fpmValue = mpsValue * 196.85
-        kphValue = mpsValue * 3.6
-        fpmField.text = String(fpmValue.rounded(toPlaces: 3))
-        mpsField.text = String(mpsValue.rounded(toPlaces: 3))
-        kphField.text = String(kphValue.rounded(toPlaces: 3))
+        self.conversion.generateSpeeds(key: ConstantValues.SpeedKeys.mph, value: mphField.text!)
+        fpmField.text = self.conversion.getFpm()
+        mpsField.text = self.conversion.getMps()
+        kphField.text = self.conversion.getKph()
     }
     
 }

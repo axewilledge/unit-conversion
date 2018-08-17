@@ -31,4 +31,21 @@ class ConstantValues {
     enum TempValues : Double {
         case kelvinValue = 273.15
     }
+    
+/* Required Values for Weight Conversion */
+    enum SpeedKeys {
+        case mps
+        case fpm
+        case kph
+        case mph
+    }
+    enum SpeedValues : Double {
+        case fpmInMps = 196.85
+        case kphInMps = 3.6
+        case mphInMps = 2.23694
+        case mpsInFpm = 0.00508
+        case mpsInKph = 0.277778
+        case mpsInMph = 0.44704
+        case fpmInMph = 88
+    }
 }
