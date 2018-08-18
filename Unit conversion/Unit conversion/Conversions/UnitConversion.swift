@@ -87,25 +87,25 @@ class UnitConversion {
         self.metreInKilometre = ConstantValues.DistanceValues.metreInKilometre.rawValue
         self.metreInMile = ConstantValues.DistanceValues.metreInMile.rawValue
         
-        self.gramValue = 0.0
-        self.kiloValue = 0.0
-        self.poundValue = 0.0
-        self.ounceValue = 0.0
+        self.gramValue = self.defualtValue
+        self.kiloValue = self.defualtValue
+        self.poundValue = self.defualtValue
+        self.ounceValue = self.defualtValue
         
-        self.celsiusValue = 0.0
-        self.fahrenheitValue = 0.0
-        self.kelvinValue = 0.0
+        self.celsiusValue = self.defualtValue
+        self.fahrenheitValue = self.defualtValue
+        self.kelvinValue = self.defualtValue
         
-        self.mpsValue = 0.0
-        self.fpmValue = 0.0
-        self.kphValue = 0.0
-        self.mphValue = 0.0
+        self.mpsValue = self.defualtValue
+        self.fpmValue = self.defualtValue
+        self.kphValue = self.defualtValue
+        self.mphValue = self.defualtValue
         
-        self.metreValue = 0.0
-        self.footValue = 0.0
-        self.yardValue = 0.0
-        self.kilometre = 0.0
-        self.mileValue = 0.0
+        self.metreValue = self.defualtValue
+        self.footValue = self.defualtValue
+        self.yardValue = self.defualtValue
+        self.kilometre = self.defualtValue
+        self.mileValue = self.defualtValue
     }
     
 /* ~~~Weight Conversion Methods START~~~ */

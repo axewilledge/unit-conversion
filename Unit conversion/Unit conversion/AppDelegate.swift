@@ -44,10 +44,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// A Function to round of a double value
 extension Double {
     func rounded(toPlaces places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
+    }
+}
+
+// A Function to hide the keyboard by tap event in the blank bodys
+extension UIViewController {
+    func hideKeyboardWhenTapped() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

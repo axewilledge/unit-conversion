@@ -10,22 +10,21 @@ import UIKit
 
 class WeightViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBOutlet weak var gram: UITextField!
     @IBOutlet weak var kilogram: UITextField!
     @IBOutlet weak var pound: UITextField!
     @IBOutlet weak var ounce: UITextField!
     
     let conversion = UnitConversion()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTapped() //Hide the keyboard in tap events in the body
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     @IBAction func Grams(_ sender: UITextField) {
         self.conversion.generateWeights(key: ConstantValues.WeightKeys.gram, value: gram.text!)
@@ -47,6 +46,7 @@ class WeightViewController: UIViewController {
         gram.text = self.conversion.getGram()
         ounce.text = self.conversion.getOunce()
     }
+    
     @IBAction func ounces(_ sender: UITextField) {
         self.conversion.generateWeights(key: ConstantValues.WeightKeys.ounce, value: ounce.text!)
         kilogram.text = self.conversion.getKilo()

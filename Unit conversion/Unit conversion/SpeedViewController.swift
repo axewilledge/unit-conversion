@@ -20,13 +20,11 @@ class SpeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTapped() //Hide the keyboard in tap events in the body
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func mps(_ sender: UITextField) {
