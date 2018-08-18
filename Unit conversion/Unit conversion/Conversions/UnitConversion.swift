@@ -45,12 +45,30 @@ class UnitConversion {
     private let mpsInMph : Double
     private let fpmInMph : Double
     
+/* Properties for Weight Conversion */
+    private var metreValue : Double
+    private var footValue : Double
+    private var yardValue : Double
+    private var kilometre : Double
+    private var mileValue : Double
+    
+    private let footInMetre : Double
+    private let yardInMetre : Double
+    private let kilometreInMetre : Double
+    private let mileInMetre : Double
+    private let metreInFoot : Double
+    private let metreInYard : Double
+    private let metreInKilometre : Double
+    private let metreInMile : Double
+    
     init() {
         self.defualtValue = 0.0
         self.gramInKilo = ConstantValues.WeightValues.gramInKilo.rawValue
         self.poundsInGram = ConstantValues.WeightValues.poundsInGram.rawValue
         self.ounceInGram = ConstantValues.WeightValues.ounceInGram.rawValue
         self.ounceInPound = ConstantValues.WeightValues.ounceInPound.rawValue
+        
+        self.kelvin = ConstantValues.TempValues.kelvinValue.rawValue
         
         self.fpmInMps = ConstantValues.SpeedValues.fpmInMps.rawValue
         self.kphInMps = ConstantValues.SpeedValues.kphInMps.rawValue
@@ -60,12 +78,19 @@ class UnitConversion {
         self.mpsInMph = ConstantValues.SpeedValues.mpsInMph.rawValue
         self.fpmInMph = ConstantValues.SpeedValues.fpmInMph.rawValue
         
+        self.footInMetre = ConstantValues.DistanceValues.footInMetre.rawValue
+        self.yardInMetre = ConstantValues.DistanceValues.yardInMetre.rawValue
+        self.kilometreInMetre = ConstantValues.DistanceValues.kilometreInMetre.rawValue
+        self.mileInMetre = ConstantValues.DistanceValues.mileInMetre.rawValue
+        self.metreInFoot = ConstantValues.DistanceValues.metreInFoot.rawValue
+        self.metreInYard = ConstantValues.DistanceValues.metreInYard.rawValue
+        self.metreInKilometre = ConstantValues.DistanceValues.metreInKilometre.rawValue
+        self.metreInMile = ConstantValues.DistanceValues.metreInMile.rawValue
+        
         self.gramValue = 0.0
         self.kiloValue = 0.0
         self.poundValue = 0.0
         self.ounceValue = 0.0
-        
-        self.kelvin = ConstantValues.TempValues.kelvinValue.rawValue
         
         self.celsiusValue = 0.0
         self.fahrenheitValue = 0.0
@@ -75,6 +100,12 @@ class UnitConversion {
         self.fpmValue = 0.0
         self.kphValue = 0.0
         self.mphValue = 0.0
+        
+        self.metreValue = 0.0
+        self.footValue = 0.0
+        self.yardValue = 0.0
+        self.kilometre = 0.0
+        self.mileValue = 0.0
     }
     
 /* ~~~Weight Conversion Methods START~~~ */
@@ -194,4 +225,62 @@ class UnitConversion {
         return String(self.mphValue.rounded(toPlaces: 5))
     }
 /* ~~~Speed Conversion Methods END~~~ */
+   
+    
+/* ~~~Distance Conversion Methods START~~~ */
+    func generateDistance(key : ConstantValues.DistanceKeys , value : String) -> Void{
+        switch key {
+            case .metre :
+                self.metreValue = Double(value) ?? 0.0
+                self.footValue = self.metreValue *  self.footInMetre
+                self.yardValue = self.metreValue *  self.yardInMetre
+                self.kilometre = self.metreValue * self.kilometreInMetre
+                self.mileValue = self.metreValue * self.mileInMetre
+            case .foot :
+                self.footValue = Double(value) ?? 0.0
+                self.metreValue = self.footValue * self.metreInFoot
+                self.yardValue = self.metreValue * self.yardInMetre
+                self.kilometre = self.metreValue * self.kilometreInMetre
+                self.mileValue = self.metreValue * self.mileInMetre
+            case .yard :
+                self.yardValue = Double(value) ?? 0.0
+                self.metreValue = self.yardValue * self.metreInYard
+                self.footValue = self.metreValue * self.footInMetre
+                self.kilometre = self.metreValue * self.kilometreInMetre
+                self.mileValue = self.metreValue * self.mileInMetre
+            case .kilometre :
+                self.kilometre = Double(value) ?? 0.0
+                self.metreValue = self.kilometre * self.metreInKilometre
+                self.footValue = self.metreValue * self.footInMetre
+                self.yardValue = self.metreValue * self.yardInMetre
+                self.mileValue = self.metreValue * self.mileInMetre
+            case .mile :
+                self.mileValue = Double(value) ?? 0.0
+                self.metreValue = self.mileValue * self.metreInMile
+                self.footValue = self.metreValue * self.footInMetre
+                self.yardValue = self.metreValue * self.yardInMetre
+                self.kilometre = self.metreValue * self.kilometreInMetre
+        }
+    }
+    
+    func getMetre() -> String {
+        return String(self.metreValue.rounded(toPlaces: 5))
+    }
+    
+    func getFoot() -> String {
+        return String(self.footValue.rounded(toPlaces: 5))
+    }
+    
+    func getYard() -> String {
+        return String(self.yardValue.rounded(toPlaces: 5))
+    }
+    
+    func getKilometre() -> String {
+        return String(self.kilometre.rounded(toPlaces: 5))
+    }
+    
+    func getMile() -> String {
+        return String(self.mileValue.rounded(toPlaces: 5))
+    }
+/* ~~~Distance Conversion Methods END~~~ */
 }

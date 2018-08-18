@@ -267,7 +267,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
-                                    <action selector="yard:" destination="aLH-ia-Pgp" eventType="editingDidEnd" id="Wpx-7b-H7D"/>
+                                    <action selector="yard:" destination="aLH-ia-Pgp" eventType="editingChanged" id="6fD-e2-U9A"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Kilometre" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ggO-f7-xam">

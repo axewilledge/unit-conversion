@@ -32,7 +32,7 @@ class ConstantValues {
         case kelvinValue = 273.15
     }
     
-/* Required Values for Weight Conversion */
+/* Required Values for Speed Conversion */
     enum SpeedKeys {
         case mps
         case fpm
@@ -47,5 +47,24 @@ class ConstantValues {
         case mpsInKph = 0.277778
         case mpsInMph = 0.44704
         case fpmInMph = 88
+    }
+    
+/* Required Values for Distance Conversion */
+    enum DistanceKeys {
+        case metre
+        case foot
+        case yard
+        case kilometre
+        case mile
+    }
+    enum DistanceValues : Double {
+        case footInMetre = 3.28
+        case yardInMetre = 1.09361
+        case kilometreInMetre = 0.001
+        case mileInMetre = 0.000621371
+        case metreInFoot = 0.3048
+        case metreInYard = 0.9144
+        case metreInKilometre = 1000
+        case metreInMile = 1609.34
     }
 }
