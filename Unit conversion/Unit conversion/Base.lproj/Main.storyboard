@@ -99,6 +99,17 @@
                                     <action selector="Grams:" destination="9pv-A4-QxB" eventType="editingChanged" id="w5d-Bc-ZfG"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuO-r7-XUZ">
+                                <rect key="frame" x="314" y="305" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.98967778497409331" green="0.42417405316567813" blue="0.79073180933471221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearFields:" destination="9pv-A4-QxB" eventType="touchUpInside" id="MbK-sA-Ts3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -107,6 +118,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="clearBtn" destination="RuO-r7-XUZ" id="CuT-oZ-nm8"/>
                         <outlet property="gram" destination="CXQ-UU-uSX" id="qCh-HT-oU2"/>
                         <outlet property="kilogram" destination="a3d-6v-lGX" id="SCI-RP-UBy"/>
                         <outlet property="ounce" destination="jFa-lk-Ao4" id="nr0-nc-hty"/>
@@ -186,6 +198,18 @@
                                     <action selector="kelvin:" destination="8rJ-Kc-sve" eventType="editingChanged" id="2ab-TX-yvo"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrg-iz-fod">
+                                <rect key="frame" x="319" y="256" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.98967778500000003" green="0.42417405320000001" blue="0.79073180929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearFields:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="6BE-LR-MFk"/>
+                                    <action selector="clearFields:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ovl-bg-a1Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
@@ -193,6 +217,7 @@
                     <tabBarItem key="tabBarItem" title="Temperature" image="temperature" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="celsiusField" destination="gwo-GH-ngy" id="FIH-E4-cn2"/>
+                        <outlet property="clearBtn" destination="Rrg-iz-fod" id="tf4-Dl-MDC"/>
                         <outlet property="fahrenheitField" destination="8mn-fJ-XZN" id="PvM-HX-wUg"/>
                         <outlet property="kelvinField" destination="ycw-D8-xLb" id="Fgo-X4-3OX"/>
                     </connections>
@@ -306,12 +331,25 @@
                                     <action selector="mile:" destination="aLH-ia-Pgp" eventType="editingChanged" id="Kk8-4P-Z8j"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjM-eS-Dfb">
+                                <rect key="frame" x="319" y="359" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.98967778500000003" green="0.42417405320000001" blue="0.79073180929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearFields:" destination="9pv-A4-QxB" eventType="touchUpInside" id="GTN-QU-48f"/>
+                                    <action selector="clearFields:" destination="aLH-ia-Pgp" eventType="touchUpInside" id="sYn-Nv-uAu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5de-Bn-JbB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Distance" image="distace" id="vRj-Je-rkf"/>
                     <connections>
+                        <outlet property="clearBtn" destination="MjM-eS-Dfb" id="TMS-9d-2Vk"/>
                         <outlet property="footField" destination="xKI-sM-vhG" id="V34-oB-5KZ"/>
                         <outlet property="kilometreField" destination="4rw-0k-Sg0" id="8Ec-Ym-Pzj"/>
                         <outlet property="metreField" destination="dik-kN-sdZ" id="c4F-sA-kYP"/>
@@ -410,12 +448,25 @@
                                     <action selector="mph:" destination="yeg-es-Ps4" eventType="editingChanged" id="Sy7-wp-0NS"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxI-Sh-6um">
+                                <rect key="frame" x="318" y="308" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.98967778500000003" green="0.42417405320000001" blue="0.79073180929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearFields:" destination="9pv-A4-QxB" eventType="touchUpInside" id="cUt-nD-yHB"/>
+                                    <action selector="clearFields:" destination="yeg-es-Ps4" eventType="touchUpInside" id="iWg-LK-cQX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BKE-sg-Cdz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Speed" image="speed" id="gMo-hy-5qU"/>
                     <connections>
+                        <outlet property="clearBtn" destination="qxI-Sh-6um" id="uM7-Qh-VO8"/>
                         <outlet property="fpmField" destination="a8I-VI-aC7" id="kxW-42-I5O"/>
                         <outlet property="kphField" destination="aSw-3s-cTd" id="uba-VV-h3j"/>
                         <outlet property="mphField" destination="isi-u8-khI" id="4h6-4m-xQG"/>

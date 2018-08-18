@@ -18,6 +18,8 @@ class SpeedViewController: UIViewController {
     
     let conversion = UnitConversion()
     
+    @IBOutlet weak var clearBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTapped() //Hide the keyboard in tap events in the body
@@ -25,6 +27,13 @@ class SpeedViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func clearFields(_ sender: UIButton) {
+        mpsField.text = ""
+        fpmField.text = ""
+        kphField.text = ""
+        mphField.text = ""
     }
     
     @IBAction func mps(_ sender: UITextField) {

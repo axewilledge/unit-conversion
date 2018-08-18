@@ -16,6 +16,8 @@ class TempViewController: UIViewController {
     
     let conversion = UnitConversion()
     
+    @IBOutlet weak var clearBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTapped() //Hide the keyboard in tap events in the body
@@ -25,6 +27,12 @@ class TempViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
+    @IBAction func clearFields(_ sender: UIButton) {
+        celsiusField.text = ""
+        fahrenheitField.text = ""
+        kelvinField.text = ""
+    }
+    
     @IBAction func celsius(_ sender: Any) {
         self.conversion.generateTemp(key: .celsius, value: celsiusField.text!)
         fahrenheitField.text = self.conversion.getFahrenheit()

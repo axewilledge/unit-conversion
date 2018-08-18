@@ -19,6 +19,8 @@ class DistanceViewController: UIViewController {
     
     let conversion = UnitConversion()
     
+    @IBOutlet weak var clearBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTapped() //Hide the keyboard in tap events in the body
@@ -26,6 +28,14 @@ class DistanceViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func clearFields(_ sender: UIButton) {
+        metreField.text = ""
+        footField.text = ""
+        yardField.text = ""
+        kilometreField.text = ""
+        mileField.text = ""
     }
     
     @IBAction func metre(_ sender: UITextField) {

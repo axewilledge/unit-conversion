@@ -17,6 +17,8 @@ class WeightViewController: UIViewController {
     
     let conversion = UnitConversion()
     
+    @IBOutlet weak var clearBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTapped() //Hide the keyboard in tap events in the body
@@ -24,6 +26,12 @@ class WeightViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    @IBAction func clearFields(_ sender: UIButton) {
+        gram.text = ""
+        kilogram.text = ""
+        pound.text = ""
+        ounce.text = ""
     }
     
     @IBAction func Grams(_ sender: UITextField) {
